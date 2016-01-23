@@ -1,4 +1,4 @@
-# replace the contents of this comment with your name
+# Sean
 import random
 
 # -------------------------------------------------------------------
@@ -7,12 +7,16 @@ import random
 #   'topLimit' which is the top limit for the random number generator
 # the function returns the random number generated to its caller
 def generateNumber( topLimit ):
-    
+    secretNumber=random.randint(1,topLimit)
+    return secretNumber
+        
     # TO DO: ####################################################
     # Write code in this function that calculates and           #
     # returns a random number between 1 and the user's topLimit #
     #############################################################
     
+   
+
 # end of generateNumber function -------------------------------------
 
 
@@ -44,6 +48,14 @@ def askUserToGuess( times, secretNumber ):
 #   the 'userGuess' parameter is the answer entered by the user
 #   the 'userSecretNumber' parameter is the randomly generated number
 def evaluateAnswer( userGuess, userSecretNumber ):
+    if userGuess < userSecretNumber:
+        print('Your guess is too low.')
+        return False
+    elif userGuess > userSecretNumber:
+        print('Your guess is too high.')
+        return False
+    else:
+        return True
     
     # TO DO: ####################################################
     # Write code in this function that compares userGuess and   #
@@ -66,6 +78,18 @@ def evaluateAnswer( userGuess, userSecretNumber ):
 #       True, we'll show the right answer on the screen
 #       False, we won't show the right answer on the screen
 def playGame( showAnswer ):
+    print('Welcome to the Random Number Generator game...') #1.Greets the user
+    YrName=input('What is your Name ? ')
+    print('Hi '+YrName+' nice to meet you !') 
+    
+    UpperLimit=int(input('Please choose the upper (max) limit number ? ')) # 2.Asks user for upper limit
+    totalGuesses=int(input('..Now choose the Total Number of guesses ? ')) #3.Asks user for total guesses
+
+    theNumber=generateNumber(UpperLimit) #4.Computer generates number using generateNumber func stores in local variable
+    print('Take a guess between 1 and '+str(UpperLimit)+' ? (YOU HAVE TOTAL GUESSES='+str(totalGuesses)+')') #5.ask user to pick a number 1 to UpperLimit
+    
+    #5.cont. output how many guesses they have in total
+
     
     # TO DO: ####################################################
     # Write code in this function that                          #
